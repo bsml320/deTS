@@ -33,7 +33,7 @@ Load gene symbol from deTS package:
 `> query.genes = GWAS_gene`  
 Or you can read your own gene symbol list from a text file:  
 `> dat = read.table("data/Gene_list.txt", head = F)`  
-`> query.genes = dat[,1]`  
+`> query.genes_user = dat[,1]`  
 
 Nextly, we perform tissue-specific enrichment analysis for query gene list:  
 `> tsea_t = tsea.analysis(query.genes, GTEx_t_score, ratio = 0.05, p.adjust.method = "bonferroni")`  
@@ -53,7 +53,7 @@ Load multiple gene symbol from deTS package:
 `> query.gene.list = Gene_list_multiple`  
 Or you can read your own gene symbol list from a text file:  
 `> dat = read.table("data/Gene_list_multiple.txt", head = T, row.names = 1)`  
-`> query.gene.list = dat`  
+`> query.gene.list_user = dat`  
 
 To keep result reliable, please keep at least 20 genes for each samples.   
 You can check the total genes number for each sample:  
