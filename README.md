@@ -29,7 +29,7 @@ deTS deals with two types of enrichment analysis for different forms of query da
 ### 2.3.1 TSEA for gene lists
 When the query data are lists of genes, the Fisher’s Exact Test is implemented. The function is `tsea.analysis()`. The input is a vector of gene symbols. Here we used disease-associated genes identified from GWAS summary statistics as an example. The gene symbols can be found here:  
 Load gene symbol from deTS package:  
-`> load("data/GWAS_gene.rda")`  
+`> data(GWAS_gene)`  
 `> query.genes = GWAS_gene`  
 Or you can read your own gene symbol list from a text file:  
 `> dat = read.table("data/Gene_list.txt", head = F)`  
@@ -49,7 +49,7 @@ For better visualization and summary, we provide one plot and one summary functi
 ### 2.3.2 TSEA for multiple gene lists  
 In most condition, you might want to analysis multiple samples together, then you can upload a 0~1 table. In the table, gene labeled with 1 indicated significant associate within a sample, while 0 indicated not in a given sample. You can check the format of example data.  
 Load multiple gene symbol from deTS package:  
-`> load("data/GWAS_gene_multiple.rda")`  
+`> data(GWAS_gene_multiple.rda)`  
 `> query.gene.list = GWAS_gene_multiple`  
 Or you can read your own gene symbol list from a text file:  
 `> dat = read.table("data/Gene_list_multiple.txt", head = T, row.names = 1)`  
@@ -75,10 +75,10 @@ Save summary result in to a spreadsheet:
 ### 2.3.3 TSEA for RNA-Seq profiles
 For a quick start, user can use ENCODE example RNA-Seq profiles make TSEA in GTEx panel:  
 Load ENCODE query data:  
-`> load("data/query_ENCODE.rda")`  
+`> data(query_ENCODE)`  
 `> query.matrix = query_ENCODE`  
 Load correction variable:  
-`> load("data/correction_factor.rda")` 
+`> data(correction_factor)` 
 
 As RNA-Seq samples are often heterogeneous, before in-depth analysis, it’s necessary to decode tissue heterogeneity to avoid samples with confounding effects. However, the raw discrete RPKM value should be normalized to continuous variable meet the normal distribution before t-test. We provided two normalization approaches: `"z-score"` and `"abundance"` in function `tsea.expression.normalization()`:  
 (1) `"z-score"` normalization will calculate a z-score for the query sample for each tissue in the reference panel as below: e_i=(e_0-μ_t))/sd_t, where μ_t and sd_t were the mean and SD of tissue t.   
@@ -96,7 +96,7 @@ Then, the tissue specific enrichment analysis for query RNA-Seq is finish. After
 `> write.csv(tseaed_in_GTEx_summary,"RNAseq_summary_in_GTEx_panel.csv")`  
 
 To prove the robustness of our proposed pipeline, user can validate the two reference panels through self-validation. Simply, load GTEx example RNA-Seq profiles and perform tissue-specific enrichment analysis in ENCODE panel:  
-`> load("data/query_GTEx.rda")`  
+`> data(query_GTEx)`  
 `> query.matrix = query_GTEx`  
 RNA expression profiles z-score normalization:   
 `> query_mat_zscore_nor = tsea.expression.normalization(query.matrix, correction_factor, normalization = "z-score")`  
@@ -111,4 +111,4 @@ Further analysis for top 3 most associated tissues is similar to previous analys
 `> write.csv(tseaed_in_ENCODE_summary,"RNAseq_summary_in_ENCODE_panel.csv")`  
 
 ## Citation
-Pei G., Dai Y., Zhao Z, Jia P. (2019) deTS: Tissue-Specific Enrichment Analysis to decode tissue specificity. Bioinformatics, In submission.  
+Pei G., Dai Y., Zhao Z., Jia P. (2019) deTS: Tissue-Specific Enrichment Analysis to decode tissue specificity. Bioinformatics, In submission.  
