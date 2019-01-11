@@ -49,8 +49,8 @@ For better visualization and summary, we provide one plot and one summary functi
 ### 2.3.2 TSEA for multiple gene lists  
 In most condition, you might want to analysis multiple samples together, then you can upload a 0~1 table. In the table, gene labeled with 1 indicated significant associate within a sample, while 0 indicated not in a given sample. You can check the format of example data.  
 Load multiple gene symbol from deTS package:  
-`> data(GWAS_gene_multiple)`  
-`> query.gene.list = GWAS_gene_multiple`  
+`> data(Gene_list_multiple)`  
+`> query.gene.list = Gene_list_multiple`  
 Or you can read your own gene symbol list from a text file:  
 `> dat = read.table("data/Gene_list_multiple.txt", head = T, row.names = 1)`  
 `> query.gene.list = dat`  
