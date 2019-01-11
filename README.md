@@ -20,9 +20,9 @@ Load the deTS package and dependent library
 deTS requires two reference panels to conduct the enrichment test: one from GTEx and the other from ENCODE. For GTEx, a matrix including the summary statistics for each tissue is also needed. All datasets have been included in the package. After installation of the package, one can load the data using the following commands:  
 
 Load the t-statistic matrix for the GTEx panel:  
-`> load("data/GTEx_t_score.rda")`  
+`> data(GTEx_t_score)`  
 Load the z-score matrix for the ENCODE panel:  
-`> load("data/ENCODE_z_score.rda")`  
+`> data(ENCODE_z_score)`  
 Then `"GTEx_t_score"` and `"ENCODE_z_score"` will be loaded to R enviroment.  
 ## 2.3 Input data
 deTS deals with two types of enrichment analysis for different forms of query data. For convenience, we provide two Tissue-Specific Enrichment Analysis (TSEA) functions for query gene lists (single sample and multiple samples), and another function for RNA-Seq expression profiles tissue-specific enrichment analysis.    
