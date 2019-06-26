@@ -111,4 +111,5 @@ Further analysis for top 3 most associated tissues is similar to previous analys
 `> write.csv(tseaed_in_ENCODE_summary,"RNAseq_summary_in_ENCODE_panel.csv")`  
 
 ## Citation
-Pei G., Dai Y., Zhao Z., Jia P. (2019) deTS: Tissue-Specific Enrichment Analysis to decode tissue specificity. Bioinformatics, In submission.  
+https://www.ncbi.nlm.nih.gov/pubmed/30824912
+Pei G., Dai Y., Zhao Z., Jia P. (2019) deTS: Tissue-Specific Enrichment Analysis to decode tissue specificity. Bioinformatics, btz138. doi: 10.1093/bioinformatics/btz138.
